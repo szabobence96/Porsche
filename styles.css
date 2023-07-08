@@ -45,11 +45,7 @@ td {
 .span_terms{
   text-decoration: underline;
 }
-@media (max-width: 600px) {
-	body {
-		margin: 0px;
-	}
-}
+
 /*Order.html-ben megjelenő fiktív számla*/
 #foglalas-details {
 	display: flex;
@@ -651,7 +647,7 @@ table {
 }
 @media screen and (max-width: 600px) {
 	.video {
-  		transform: scale(1.5);
+		
 	}
 }
 /*Rólunk*/
