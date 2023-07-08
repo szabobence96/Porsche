@@ -644,7 +644,11 @@ table {
 	padding-top: 5rem;
 	/*Azért kell, hogy pontosan középre dobja amikor rákattintasz a porschera*/
 }
-
+@media screen and (max-width: 600px) {
+	.video {
+  		transform: scale(1.5);
+	}
+}
 /*Rólunk*/
 
 .about {
