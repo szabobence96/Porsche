@@ -8,6 +8,8 @@
 	scroll-behavior: smooth;
 	list-style: none;
 	text-decoration: none;
+	outline: none;
+  	-webkit-tap-highlight-color: transparent;
 }
 
 :root {
@@ -39,7 +41,9 @@ td {
 .span_terms{
   text-decoration: underline;
 }
-
+body{
+	margin: 0px;
+}
 /*Order.html-ben megjelenő fiktív számla*/
 #foglalas-details {
 	display: flex;
