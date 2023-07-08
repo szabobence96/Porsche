@@ -8,8 +8,14 @@
 	scroll-behavior: smooth;
 	list-style: none;
 	text-decoration: none;
+	outline: none;
+  	-webkit-tap-highlight-color: transparent;
 }
-
+@media (max-width: 500px) {
+	body {
+		margin: 0px;
+	}
+}
 :root {
 	--main-color: rgb(194, 17, 17);
 	--hover-color: red;
