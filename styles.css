@@ -554,7 +554,7 @@ table {
 	width: 1280px;
 	max-width: 100%;
 	overflow: auto;
-	margin: 100px auto 50px;
+	margin: 70px auto 50px;
 	scroll-behavior: smooth;
 	scroll-snap-type: both;
 }
@@ -642,13 +642,11 @@ table {
 
 .video {
 	width: 100%;
-	padding-top: 5rem;
+	padding-bottom: 1rem;
 	/*Azért kell, hogy pontosan középre dobja amikor rákattintasz a porschera*/
 }
-@media screen and (max-width: 600px) {
-	.video {
-		
-	}
+.line{
+	padding: 10px;
 }
 /*Rólunk*/
 
