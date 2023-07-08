@@ -453,6 +453,7 @@ header {
 .select-box {
 	max-height: 120px;
 	overflow-y: auto;
+	background: #eeeff1;
 }
 
 .select-box select {
@@ -493,6 +494,10 @@ header {
 #megrendelem-button{
 	background-image: linear-gradient(to right, #282936 0%, #6f6f77 51%, #282936 100%);
 }
+@media screen and (max-width: 580px){
+
+}
+	
 
 /* Foglalás vége */
 
