@@ -41,8 +41,10 @@ td {
 .span_terms{
   text-decoration: underline;
 }
-body{
-	margin: 50px;
+@media (max-width: 500px) {
+	body {
+		margin: 0px;
+	}
 }
 /*Order.html-ben megjelenő fiktív számla*/
 #foglalas-details {
