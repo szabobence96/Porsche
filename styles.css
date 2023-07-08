@@ -1,0 +1,783 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+* {
+	font-family: 'Montserrat', sans-serif;
+	padding: 0;
+	box-sizing: border-box;
+	scroll-padding-top: 2rem;
+	scroll-behavior: smooth;
+	list-style: none;
+	text-decoration: none;
+}
+
+:root {
+	--main-color: rgb(194, 17, 17);
+	--hover-color: red;
+	--text-color: #444;
+}
+
+html::-webkit-scrollbar {
+	width: 0.5rem;
+	height: 0.5rem;
+}
+
+html::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+html::-webkit-scrollbar-thumb {
+	background: var(--text-color);
+	border-radius: 5rem;
+}
+
+h1,
+h2,
+span,
+td {
+	color: var(--text-color);
+}
+.span_terms{
+  text-decoration: underline;
+}
+
+/*Order.html-ben megjelenő fiktív számla*/
+#foglalas-details {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #f1f1f1;
+	border: 1px solid #ccc;
+	padding: 20px;
+	margin-top: 250px;
+	margin-bottom: 520px;
+	margin-left: 10%;
+	margin-right: 10%;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+/*Számla vége*/
+
+section {
+	padding: 50px 100px 2px;
+}
+
+header {
+	position: fixed;
+	width: 100%;
+	top: 0;
+	right: 0;
+	z-index: 999;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	background: #eeeff1;
+	padding: 15px 100px;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.7);
+}
+
+.logo img {
+	width: 150px;
+}
+
+.navbar {
+	display: flex;
+}
+
+.navbar li {
+	position: relative;
+}
+
+.navbar a {
+	font-size: 1rem;
+	padding: 10px 20px;
+	color: var(--text-color);
+	transition: color 0.3s ease-in-out;
+}
+
+.navbar li a b {
+	color: red;
+	font-weight: 700;
+	font-style: italic;
+	transition: color 0.3s ease-in-out;
+}
+
+.navbar li a b:hover {
+	color: rgb(194, 17, 17);
+}
+
+.navbar a:hover {
+	color: rgb(194, 17, 17);
+}
+
+.navbar a b:hover {
+	color: rgb(194, 17, 17);
+}
+
+#menu-icon {
+	font-size: 25px;
+	z-index: 1100;
+	cursor: pointer;
+	display: none;
+}
+
+/*Navbar respnsive*/
+@media (max-width: 1000px) {
+
+	#menu-icon {
+		display: initial;
+	}
+
+	header {
+		padding: 15px 30px;
+	}
+
+	header .navbar {
+		position: absolute;
+		margin: 0;
+		top: 75px;
+		left: 0;
+		right: 0;
+		display: flex;
+		flex-direction: column;
+		background: #FFF;
+		box-shadow: 0 4px 4px rgba(0, 0, 0, 0.7);
+		height: 0;
+		overflow: hidden;
+		transition: height 0.3s ease-in-out;
+	}
+
+	.navbar.active {
+		/*Ide ha a .navbar után raksz egy space-t nem működik a JS!!*/
+		height: 310px;
+		/* Állítsd be a kívánt magasságot */
+	}
+
+	.navbar a {
+		font-size: 1rem;
+		padding: 1rem;
+		color: var(--text-color);
+		transition: color 0.3s ease-in-out;
+		display: block;
+		text-align: center;
+		user-select: none;
+	}
+}
+
+@media (max-width: 500px) {
+	header {
+		padding: 15px 15px;
+	}
+}
+/*Navbar vege*/
+
+/*Háttérkép + felirat*/
+#background {
+	opacity: 0;
+	position: relative;
+	background-image: url(kepek/porsche_main.jpg);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	overflow: hidden;
+	animation: anim_bg 1.5s forwards;
+	overflow: hidden;
+}
+
+@media (max-width: 767px) {
+	#background {
+		max-height: 488px;
+	}
+}
+
+#background::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 0%;
+	background-color: rgba(0, 0, 0, 0.7);
+	animation: anim_bg 1s forwards;
+	animation-delay: 1.5s;
+}
+
+#background .content {
+	position: relative;
+	width: 1080px;
+	max-width: 90%;
+	margin-left: auto;
+	margin-right: auto;
+	height: 100%;
+}
+
+#background .content .title {
+	opacity: 0;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: anim_opacity 1s forwards;
+	animation-delay: 2.5s;
+}
+
+#background .content .title h5 {
+	margin: 0;
+	padding: 0;
+	color: #FFF;
+	text-transform: uppercase;
+	position: relative;
+	font-size: 70px;
+	letter-spacing: 10px;
+}
+
+@media (max-width: 767px) {
+	#background .content .title h5 {
+		font-size: 35px;
+	}
+}
+
+#background .content .title h5::before {
+	content: '';
+	opacity: 0;
+	position: absolute;
+	background-color: rgba(255, 255, 255, 0.6);
+	width: 0%;
+	height: 5px;
+	bottom: -10px;
+	left: 50%;
+	transform: translateX(-50%);
+	animation: anim_title-underline 1s forwards;
+	animation-delay: 3s;
+}
+
+
+@keyframes anim_bg {
+	from {
+		opacity: 0;
+		height: 100vh;
+	}
+
+	to {
+		opacity: 1;
+		height: 100vh;
+	}
+}
+
+@keyframes anim_opacity {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes anim_title-underline {
+	from {
+		opacity: 0;
+		width: 0;
+	}
+
+	to {
+		opacity: 1;
+		width: 110%;
+	}
+}
+/*Háttér + felirat vége*/
+
+/* Hogyan működik?*/
+.heading {
+	text-align: center;
+	padding-top: 50px;
+}
+
+.heading span {
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.heading h1 {
+	font-size: 2rem;
+}
+
+.ride-container {
+	display: grid;
+	text-align: center;
+	align-items: center;
+	grid-template-columns: repeat(auto-fit, minmax(250px, auto));
+	gap: 1rem;
+	margin-top: 2rem;
+}
+
+.ride-container .box {
+	text-align: center;
+	padding: 20px;
+}
+
+.ride-container .box .bx {
+	font-size: 35px;
+	padding: 10px;
+	background: #eeeff1;
+	border-radius: 0.5rem;
+	color: var(--main-color);
+}
+
+.ride-container .box h2 {
+	font-size: 1.4rem;
+	font-weight: 700;
+	margin: 1.4rem 0 0.5rem;
+}
+
+.ride-container .box .bxs-calendar-check {
+	background: var(--hover-color);
+	color: #fff;
+}
+
+@media screen and (max-width: 1100px) {
+	.ride-container {
+		display: table-row;
+	}
+
+	section {
+		padding: 50px 10px 2px;
+		text-align: justify;
+	}
+}
+/*Hogyan működik vége*/
+
+
+/*Foglalás*/
+
+.input-box {
+	flex: 1 1 calc(33.33% - 20px);
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+}
+
+.input-box span {
+	font-weight: 900;
+	padding-bottom: 10px;
+}
+
+.input-box #auto {
+	padding-bottom: 10px;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+	justify-content: center;
+}
+
+.input-box input {
+	cursor: pointer;
+	padding: 7px;
+	outline: none;
+	border: none;
+	background: #eeeff1;
+	border-radius: 0.5rem;
+	font-size: 1rem;
+}
+
+.container {
+	position: relative;
+	max-width: 700px;
+	top: 100px;
+	width: 100%;
+	background: #fff;
+	padding: 25px;
+	border-radius: 8px;
+	margin-left: auto;
+	margin-right: auto;
+	box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+}
+
+.container .order {
+	font-size: 1.5rem;
+	color: #fff;
+	font-weight: 500;
+	text-align: center;
+	padding: 15px;
+	background-image: linear-gradient(to right, #282936 0%, #6f6f77 51%, #282936 100%);
+	border-radius: 15px;
+}
+
+.container .form {
+	margin-top: 30px;
+}
+
+.form .input-box {
+	width: 100%;
+	margin-top: 20px;
+}
+
+.input-box label {
+	color: #333;
+}
+
+.form :where(.input-box input, .select-box) {
+	position: relative;
+	height: 50px;
+	width: 100%;
+	outline: none;
+	font-size: 1rem;
+	color: #707070;
+	margin-top: 8px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	padding: 0 15px;
+}
+
+.input-box input:focus {
+	box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+.form .column {
+	display: flex;
+	column-gap: 15px;
+}
+
+.terms {
+	margin-top: 20px;
+}
+
+.select-box {
+	max-height: 120px;
+	overflow-y: auto;
+}
+
+.select-box select {
+	height: 100%;
+	width: 100%;
+	outline: none;
+	border: none;
+	color: #707070;
+	font-size: 1rem;
+}
+.button-container{
+	height: 55px;
+	width: 100%;
+	color: #fff;
+	font-size: 1.5rem;
+	font-weight: 400;
+	margin-top: 30px;
+	border: none;
+	border-radius: 10px;
+	padding-bottom: 85px;
+	cursor: pointer;
+}
+.form button{
+	flex: 1 1 auto;
+	width: 100%;
+	padding: 30px;
+	text-align: center;
+	text-transform: uppercase;
+	transition: 0.2s;
+	background-size: 200% auto;
+	color: #fff;
+	box-shadow: 0 0 20px #eee;
+	border-radius: 10px;
+}
+.form button:hover{
+	background-position: right center; 
+}
+#megrendelem-button{
+	background-image: linear-gradient(to right, #282936 0%, #6f6f77 51%, #282936 100%);
+}
+
+/* Foglalás vége */
+
+/* Autók + arrow*/
+
+.item {
+	border-radius: 15px;
+	box-shadow: 2px 2px 4px 0 rgba(0, 0, 0, 0.5);
+	width: 300px;
+	height: 520px;
+	background-image: linear-gradient(to bottom right, rgb(255, 255, 255), rgba(192, 192, 192, 0.39));
+	overflow: hidden;
+	transition: 0.5s;
+	margin: 10px;
+	scroll-snap-align: start;
+}
+
+.item .avatar {
+	display: block;
+	margin: 50px auto 10px;
+	width: 250px;
+	height: 140px;
+	border-radius: 20px;
+	box-shadow: 0 10px 15px #7e878d;
+}
+
+table {
+	background-color: white;
+	border-radius: 20px;
+	padding: 10px;
+	box-shadow: 0 10px 15px #7e878d;
+}
+
+.item .content {
+	padding: 30px;
+}
+
+.item .content table td {
+	padding: 10px 0;
+	border-bottom: 1px solid #AEC0CE;
+}
+
+.item .content table td:nth-child(2) {
+	text-align: right;
+}
+
+.item .nameGroup {
+	text-align: center;
+	border-bottom: none !important;
+}
+
+#list {
+	display: flex;
+	width: max-content;
+}
+
+#formList {
+	width: 1280px;
+	max-width: 100%;
+	overflow: auto;
+	margin: 100px auto 50px;
+	scroll-behavior: smooth;
+	scroll-snap-type: both;
+}
+
+#formList::-webkit-scrollbar {
+	display: none;
+}
+
+@media screen and (max-width: 1300px) {
+	.item {
+		width: calc(33.3vw - 20px);
+	}
+}
+
+@media screen and (max-width: 900px) {
+	.item {
+		width: calc(50vw - 20px);
+	}
+}
+
+@media screen and (max-width: 580px) {
+	.item {
+		width: calc(100vw - 20px);
+	}
+
+	.nyil {
+		display: none;
+	}
+}
+
+.nyil {
+	cursor: pointer;
+	position: absolute;
+	left: 50%;
+	width: 10vmin;
+	height: 5vmin;
+	transform: translate(-50%, -50%);
+}
+
+.arrow {
+	position: absolute;
+	bottom: 300px;
+	width: 7vmin;
+	height: 7vmin;
+	background: transparent;
+	border-top: 1vmin solid var(--hover-color);
+	border-right: 1vmin solid var(--hover-color);
+	box-shadow: 0 0 0 lightgray;
+	transition: all 200ms ease;
+	user-select: none;
+}
+
+.arrow.left {
+	right: 100vh;
+	transform: translate3d(0, -50%, 0) rotate(-135deg);
+}
+
+.arrow.right {
+	left: 100vh;
+	transform: translate3d(0, -50%, 0) rotate(45deg);
+}
+
+.arrow:hover {
+	border-color: rgb(194, 17, 17);
+	box-shadow: 0.5vmin -0.5vmin 0 rgb(189, 189, 189);
+}
+
+@media screen and (max-width: 1300px) {
+	.arrow.left {
+		right: 30vh;
+	}
+
+	.arrow.right {
+		left: 30vh;
+	}
+
+	.arrow {
+		bottom: -20px;
+		width: 5vmin;
+		height: 5vmin;
+	}
+}
+
+/*Autók + arrow vége*/
+
+.video {
+	width: 100%;
+	padding-top: 5rem;
+	/*Azért kell, hogy pontosan középre dobja amikor rákattintasz a porschera*/
+}
+
+/*Rólunk*/
+
+.about {
+	margin-top: 100px;
+}
+
+@media screen and (max-width: 700px) {
+	.about {
+		text-align: center;
+	}
+}
+
+.heading-about {
+	border-top: 1px solid #282936;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.heading-about h1 {
+	color: #fff;
+	text-transform: uppercase;
+	background-color: #282936;
+	text-align: center;
+	border-radius: 1.625rem;
+	padding: 15px;
+}
+
+
+/*Rólunk-button*/
+button {
+	position: relative;
+	display: inline-block;
+	cursor: pointer;
+	outline: none;
+	border: 0;
+	vertical-align: middle;
+	text-decoration: none;
+	background: transparent;
+	padding: 0;
+	font-size: inherit;
+	font-family: inherit;
+}
+
+button.learn-more {
+	width: 17rem;
+	height: auto;
+}
+
+button.learn-more .circle {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	position: relative;
+	display: block;
+	margin: 0;
+	width: 3rem;
+	height: 3rem;
+	background: #282936;
+	border-radius: 1.625rem;
+}
+
+button.learn-more .circle .icon {
+	transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	background: #fff;
+}
+
+button.learn-more .circle .icon.arr {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	left: 0.625rem;
+	width: 1.125rem;
+	height: 0.125rem;
+	background: none;
+}
+
+button.learn-more .circle .icon.arr::before {
+	position: absolute;
+	content: "";
+	top: -0.25rem;
+	right: 0.0625rem;
+	width: 0.625rem;
+	height: 0.625rem;
+	border-top: 0.125rem solid #fff;
+	border-right: 0.125rem solid #fff;
+	transform: rotate(45deg);
+}
+
+button.learn-more .button-text {
+  transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0.75rem 0;
+	margin: 0 0 0 1.85rem;
+	color: #282936;
+	font-weight: 700;
+	line-height: 1.6;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+button:hover .circle {
+	width: 100%;
+}
+
+button:hover .circle .icon.arr {
+  background: #fff;
+	transform: translate(1rem, 0);
+}
+
+button:hover .button-text {
+	color: #fff;
+}
+
+/* Rólunk + learn more button vége */
+
+/* Footer */
+
+.footer {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+.icons {
+  max-width: 32px;
+  gap: 50px;
+}
+
+.aszf {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2;
+  padding: 10px;
+}
+
+/*Footer vége*/
