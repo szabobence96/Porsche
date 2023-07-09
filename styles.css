@@ -84,7 +84,11 @@ header {
 .logo img {
 	width: 150px;
 }
-
+@media (max-width: 500px) {
+	.logo img{
+		width: 120px;
+	}
+}
 .navbar {
 	display: flex;
 }
@@ -192,7 +196,7 @@ header {
 
 @media (max-width: 767px) {
 	#background {
-		max-height: 488px;
+		max-height: 438px;
 	}
 }
 
